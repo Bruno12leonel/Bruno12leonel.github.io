@@ -1,11 +1,539 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Meu Portfólio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfólio de Bruno — Engenheiro de IA especializado em sistemas multi-agente, LLMs e RAG.">
+  <title>Bruno | AI Engineer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Olá, mundo! Este é o meu portfólio.</h1>
-    <p>Em breve, mais novidades aqui.</p>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <nav class="navbar" id="navbar">
+    <a href="#hero" class="nav-logo">bruno<span>.dev</span></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about">sobre</a></li>
+      <li><a href="#skills">skills</a></li>
+      <li><a href="#experience">experiência</a></li>
+      <li><a href="#projects">projetos</a></li>
+      <li><a href="#chat">agente</a></li>
+      <li><a href="#contact">contato</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ==================== HERO ==================== -->
+  <section id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-content">
+      <div class="hero-tag">⚡ Disponível para oportunidades</div>
+      <h1>Olá, sou <span class="name-highlight">Bruno</span></h1>
+      <p class="hero-title">
+        <span id="typed-title">AI Engineer</span>
+        <span class="cursor-blink"></span>
+      </p>
+      <p class="hero-description">
+        Especialista em sistemas multi-agente, LLMs e RAG. Construo soluções de IA que vão além de modelos isolados —
+        arquiteturas inteligentes que raciocinam, recuperam contexto e executam ferramentas de forma autônoma.
+      </p>
+      <div class="hero-actions">
+        <a href="#chat" class="btn btn-primary">
+          &#x25B6; Converse com meu agente
+        </a>
+        <a href="#projects" class="btn btn-secondary">
+          Ver projetos
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SOBRE MIM ==================== -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// 01 — sobre mim</span>
+        <h2>Quem sou <em>eu</em></h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-avatar reveal">
+          <div class="avatar-frame">
+            <!-- Substitua por uma tag <img> quando tiver sua foto:
+                 <img src="assets/foto.jpg" alt="Bruno"> -->
+            <span class="avatar-placeholder">🧑‍💻</span>
+            <div class="avatar-corner tl"></div>
+            <div class="avatar-corner tr"></div>
+            <div class="avatar-corner bl"></div>
+            <div class="avatar-corner br"></div>
+          </div>
+        </div>
+        <div class="about-text reveal">
+          <!-- ✏️ EDITE: substitua pelos seus parágrafos de apresentação -->
+          <p>
+            Sou Engenheiro de IA apaixonado por construir sistemas inteligentes que resolvem problemas complexos do mundo real.
+            Minha trajetória combina sólida base em engenharia com profundo domínio de machine learning, LLMs e arquiteturas multi-agente.
+          </p>
+          <p>
+            Trabalho na interseção entre pesquisa e produção — transformando técnicas de ponta em produtos confiáveis e escaláveis.
+            Acredito que a IA mais poderosa é aquela que age, raciocina e se adapta ao contexto, não apenas aquela que gera texto.
+          </p>
+          <p>
+            Fora do trabalho, contribuo para projetos open source, acompanho papers de pesquisa em AI Agents e gosto de ensinar o que aprendo.
+          </p>
+          <div class="about-chips">
+            <span class="chip cyan">Sistemas Multi-Agente</span>
+            <span class="chip purple">LLMs & Fine-tuning</span>
+            <span class="chip green">RAG & Vector DBs</span>
+            <span class="chip yellow">MLOps</span>
+            <span class="chip cyan">Python</span>
+            <span class="chip purple">AI Research</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SKILLS ==================== -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// 02 — habilidades</span>
+        <h2>Stack <em>técnico</em></h2>
+      </div>
+      <div class="skills-grid">
+
+        <div class="skill-category reveal">
+          <div class="skill-category-icon">🤖</div>
+          <h3>AI & LLMs</h3>
+          <ul class="skill-list">
+            <li class="skill-item">
+              <span>LangChain / LangGraph</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="92"></div></div>
+            </li>
+            <li class="skill-item">
+              <span>OpenAI / Anthropic APIs</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="95"></div></div>
+            </li>
+            <li class="skill-item">
+              <span>Fine-tuning (LoRA / QLoRA)</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="80"></div></div>
+            </li>
+            <li class="skill-item">
+              <span>Prompt Engineering</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="98"></div></div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="skill-category reveal">
+          <div class="skill-category-icon">🧠</div>
+          <h3>Machine Learning</h3>
+          <ul class="skill-list">
+            <li class="skill-item">
+              <span>PyTorch</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="88"></div></div>
+            </li>
+            <li class="skill-item">
+              <span>HuggingFace</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div>
+            </li>
+            <li class="skill-item">
+              <span>Scikit-learn</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div>
+            </li>
+            <li class="skill-item">
+              <span>Computer Vision</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="75"></div></div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="skill-category reveal">
+          <div class="skill-category-icon">🗄️</div>
+          <h3>RAG & Dados</h3>
+          <ul class="skill-list">
+            <li class="skill-item">
+              <span>Vector DBs (Pinecone, Chroma)</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="88"></div></div>
+            </li>
+            <li class="skill-item">
+              <span>Embeddings</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="92"></div></div>
+            </li>
+            <li class="skill-item">
+              <span>SQL & NoSQL</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="80"></div></div>
+            </li>
+            <li class="skill-item">
+              <span>Data Pipelines</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="78"></div></div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="skill-category reveal">
+          <div class="skill-category-icon">☁️</div>
+          <h3>Cloud & MLOps</h3>
+          <ul class="skill-list">
+            <li class="skill-item">
+              <span>AWS / GCP</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="82"></div></div>
+            </li>
+            <li class="skill-item">
+              <span>Docker / Kubernetes</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="78"></div></div>
+            </li>
+            <li class="skill-item">
+              <span>MLflow / W&B</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div>
+            </li>
+            <li class="skill-item">
+              <span>CI/CD para ML</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="75"></div></div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== EXPERIÊNCIA ==================== -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// 03 — experiência</span>
+        <h2>Trajetória <em>profissional</em></h2>
+      </div>
+      <div class="timeline">
+
+        <!-- ✏️ EDITE: adicione/remova seus empregos abaixo -->
+        <div class="timeline-item reveal">
+          <div class="timeline-card">
+            <div class="timeline-date">Jan 2024 — Presente</div>
+            <h3>AI Engineer Senior</h3>
+            <div class="company">Nome da Empresa &bull; São Paulo, SP</div>
+            <p>
+              Arquitetei e implementei sistemas multi-agente para automação de processos complexos utilizando
+              LangGraph e GPT-4o. Reduzi o tempo de processamento em 60% com pipelines de RAG otimizados
+              e fine-tuning de modelos específicos para o domínio.
+            </p>
+            <div class="timeline-tags">
+              <span class="tag">LangGraph</span>
+              <span class="tag">GPT-4o</span>
+              <span class="tag">RAG</span>
+              <span class="tag">Python</span>
+              <span class="tag">AWS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-card">
+            <div class="timeline-date">Mar 2022 — Dez 2023</div>
+            <h3>Machine Learning Engineer</h3>
+            <div class="company">Outra Empresa &bull; Remoto</div>
+            <p>
+              Desenvolvi e mantive modelos de NLP para classificação de documentos e extração de informações.
+              Implementei pipelines de MLOps com MLflow e Docker, garantindo reprodutibilidade e rastreabilidade
+              dos experimentos.
+            </p>
+            <div class="timeline-tags">
+              <span class="tag">NLP</span>
+              <span class="tag">HuggingFace</span>
+              <span class="tag">MLflow</span>
+              <span class="tag">Docker</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-card">
+            <div class="timeline-date">Jun 2021 — Fev 2022</div>
+            <h3>Data Scientist</h3>
+            <div class="company">Startup XYZ &bull; Belo Horizonte, MG</div>
+            <p>
+              Análise exploratória e construção de modelos preditivos para churn e segmentação de clientes.
+              Primeira experiência com LLMs aplicados a análise de feedback de usuários.
+            </p>
+            <div class="timeline-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Scikit-learn</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Power BI</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FORMAÇÃO ==================== -->
+  <section id="education">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// 04 — formação</span>
+        <h2>Base <em>acadêmica</em></h2>
+      </div>
+      <div class="timeline">
+
+        <!-- ✏️ EDITE: substitua com sua formação real -->
+        <div class="timeline-item reveal">
+          <div class="timeline-card">
+            <div class="timeline-date">2022 — 2024</div>
+            <h3>Mestrado em Ciência da Computação</h3>
+            <div class="company">Universidade Federal &bull; Área: Inteligência Artificial</div>
+            <p>
+              Pesquisa focada em sistemas multi-agente e aprendizado por reforço. Dissertação: "Coordenação
+              emergente em redes de LLMs para resolução de tarefas complexas".
+            </p>
+            <div class="timeline-tags">
+              <span class="tag">Multi-Agent RL</span>
+              <span class="tag">LLMs</span>
+              <span class="tag">Pesquisa</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-card">
+            <div class="timeline-date">2018 — 2022</div>
+            <h3>Bacharelado em Engenharia de Computação</h3>
+            <div class="company">Universidade &bull; Cidade, Estado</div>
+            <p>
+              Formação com ênfase em sistemas computacionais, algoritmos e estruturas de dados.
+              TCC sobre aplicações de deep learning para visão computacional.
+            </p>
+            <div class="timeline-tags">
+              <span class="tag">Engenharia</span>
+              <span class="tag">Deep Learning</span>
+              <span class="tag">C++</span>
+              <span class="tag">Python</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PROJETOS ==================== -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// 05 — projetos</span>
+        <h2>O que <em>construí</em></h2>
+      </div>
+      <div class="projects-grid">
+
+        <!-- ✏️ EDITE: substitua com seus projetos reais -->
+        <div class="project-card reveal">
+          <div class="project-header">
+            <div class="project-icon">🕸️</div>
+            <div class="project-links">
+              <a href="#" class="project-link" title="GitHub">⌥</a>
+              <a href="#" class="project-link" title="Demo">↗</a>
+            </div>
+          </div>
+          <h3>Multi-Agent Research Assistant</h3>
+          <p>
+            Sistema com orquestrador + agentes especializados (busca web, código, síntese) para pesquisa
+            autônoma. Utiliza LangGraph com memória persistente e RAG sobre base de papers científicos.
+          </p>
+          <div class="timeline-tags">
+            <span class="tag">LangGraph</span>
+            <span class="tag">RAG</span>
+            <span class="tag">GPT-4o</span>
+            <span class="tag">Chroma</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-header">
+            <div class="project-icon">📄</div>
+            <div class="project-links">
+              <a href="#" class="project-link" title="GitHub">⌥</a>
+              <a href="#" class="project-link" title="Demo">↗</a>
+            </div>
+          </div>
+          <h3>Document Intelligence Pipeline</h3>
+          <p>
+            Pipeline de extração e análise de documentos PDFs complexos usando OCR + LLM + RAG.
+            Processa contratos jurídicos e retorna respostas contextualizadas com citações.
+          </p>
+          <div class="timeline-tags">
+            <span class="tag">RAG</span>
+            <span class="tag">OCR</span>
+            <span class="tag">Pinecone</span>
+            <span class="tag">FastAPI</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-header">
+            <div class="project-icon">🔬</div>
+            <div class="project-links">
+              <a href="#" class="project-link" title="GitHub">⌥</a>
+              <a href="#" class="project-link" title="Demo">↗</a>
+            </div>
+          </div>
+          <h3>LLM Fine-tuning Toolkit</h3>
+          <p>
+            Framework para fine-tuning eficiente de LLMs com LoRA/QLoRA. Inclui geração de dataset,
+            treinamento, avaliação e deploy automatizados via CLI.
+          </p>
+          <div class="timeline-tags">
+            <span class="tag">LoRA</span>
+            <span class="tag">HuggingFace</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">W&B</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-header">
+            <div class="project-icon">⚙️</div>
+            <div class="project-links">
+              <a href="#" class="project-link" title="GitHub">⌥</a>
+              <a href="#" class="project-link" title="Demo">↗</a>
+            </div>
+          </div>
+          <h3>AI Monitoring Dashboard</h3>
+          <p>
+            Dashboard para monitoramento de métricas de LLMs em produção: latência, custo por token,
+            qualidade das respostas e detecção de drift.
+          </p>
+          <div class="timeline-tags">
+            <span class="tag">MLflow</span>
+            <span class="tag">Prometheus</span>
+            <span class="tag">Grafana</span>
+            <span class="tag">Python</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CHAT ==================== -->
+  <section id="chat">
+    <div class="container">
+      <div class="section-header reveal" style="text-align:center;">
+        <span class="section-tag" style="display:block; text-align:center;">// 06 — agente de portfólio</span>
+        <h2>Pergunte ao meu <em>agente</em></h2>
+      </div>
+      <div class="chat-wrapper reveal">
+        <div class="chat-intro">
+          <div class="chat-agent-badge">
+            <span class="dot"></span>
+            Portfolio Agent &bull; online
+          </div>
+          <p>Faça qualquer pergunta sobre minha trajetória, projetos, skills ou experiências.</p>
+        </div>
+        <div class="chat-container">
+          <div class="chat-header">
+            <div class="chat-header-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="chat-header-title">portfolio-agent &mdash; GPT-4o</div>
+          </div>
+          <div class="chat-messages" id="chat-messages">
+            <div class="message assistant">
+              <div class="message-avatar">🤖</div>
+              <div class="message-bubble">
+                Olá! Sou o agente de portfólio do Bruno. Estou aqui para responder qualquer dúvida sobre
+                a trajetória, projetos e habilidades dele. Como posso te ajudar?
+              </div>
+            </div>
+          </div>
+          <div class="chat-suggestions" id="chat-suggestions">
+            <button class="suggestion-btn">Quais são suas principais skills?</button>
+            <button class="suggestion-btn">Fale sobre sistemas multi-agente</button>
+            <button class="suggestion-btn">Quais projetos você já fez?</button>
+            <button class="suggestion-btn">Como você trabalha com RAG?</button>
+          </div>
+          <div class="chat-api-warning" id="api-warning">
+            ⚠️ Configure sua chave OpenAI em <code>chat.js</code> para ativar o agente real.
+          </div>
+          <div class="chat-input-area">
+            <textarea
+              id="chat-input"
+              placeholder="Pergunte algo sobre o Bruno..."
+              rows="1"
+              maxlength="500"
+            ></textarea>
+            <button id="chat-send" title="Enviar">&#x27A4;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTATO ==================== -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// 07 — contato</span>
+        <h2>Vamos <em>conversar</em></h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-text reveal">
+          <p>
+            Estou sempre aberto a discutir novos projetos, oportunidades de colaboração ou simplesmente
+            trocar ideias sobre IA e sistemas inteligentes.
+          </p>
+          <p>
+            Se você tem um problema interessante que pode ser resolvido com IA, é provável que eu queira
+            ouvir sobre ele.
+          </p>
+          <div class="contact-links">
+            <!-- ✏️ EDITE: substitua com seus links reais -->
+            <a href="https://linkedin.com/in/seu-usuario" target="_blank" class="contact-link">
+              <span class="link-icon">💼</span>
+              <span>linkedin.com/in/<strong>seu-usuario</strong></span>
+            </a>
+            <a href="https://github.com/Bruno12leonel" target="_blank" class="contact-link">
+              <span class="link-icon">⌥</span>
+              <span>github.com/<strong>Bruno12leonel</strong></span>
+            </a>
+            <a href="mailto:seu@email.com" class="contact-link">
+              <span class="link-icon">✉️</span>
+              <span><strong>seu@email.com</strong></span>
+            </a>
+          </div>
+        </div>
+        <div class="contact-card reveal">
+          <div class="code-comment">// contato.json</div>
+          <br>
+          <div class="code-brace">{</div>
+          <div style="padding-left:1.5rem">
+            <span class="code-key">"nome"</span>: <span class="code-string">"Bruno"</span>,<br>
+            <span class="code-key">"role"</span>: <span class="code-string">"AI Engineer"</span>,<br>
+            <span class="code-key">"location"</span>: <span class="code-string">"Brasil 🇧🇷"</span>,<br>
+            <span class="code-key">"disponivel"</span>: <span style="color:var(--green)">true</span>,<br>
+            <span class="code-key">"foco"</span>: <span class="code-string">"Multi-Agent AI"</span>,<br>
+            <span class="code-key">"responde_em"</span>: <span class="code-string">"&lt; 24h"</span>
+          </div>
+          <div class="code-brace">}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <p>Feito com ☕ e Python &bull; <a href="https://github.com/Bruno12leonel" target="_blank">Bruno12leonel</a> &copy; 2025</p>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="chat.js"></script>
 </body>
 </html>
