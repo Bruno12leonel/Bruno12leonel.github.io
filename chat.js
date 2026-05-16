@@ -1,11 +1,12 @@
 /* =============================================
    CONFIGURAÇÃO
-   ✏️ Substitua pela sua chave OpenAI antes do deploy.
-   ATENÇÃO: Nunca exponha sua chave em repositórios públicos.
-   Para produção, use um backend/proxy para esconder a chave.
+   Usando Groq — API gratuita, sem cartão de crédito.
+   Crie sua chave em: https://console.groq.com
+   ✏️ Cole sua chave abaixo e faça o deploy.
    ============================================= */
-const OPENAI_API_KEY = 'sk-...SUA_CHAVE_AQUI...';
-const OPENAI_MODEL   = 'gpt-4o';
+const OPENAI_API_KEY = '';
+const OPENAI_MODEL   = 'llama-3.3-70b-versatile';
+const OPENAI_BASE    = 'https://late-lab-1ef1.bruno12leonel.workers.dev';
 
 /* =============================================
    SYSTEM PROMPT — Informações sobre o Bruno
@@ -13,8 +14,8 @@ const OPENAI_MODEL   = 'gpt-4o';
    Este texto é injetado como contexto para o agente.
    ============================================= */
 const SYSTEM_PROMPT = `
-Você é o agente de portfólio do Bruno, um Engenheiro de IA especializado em sistemas multi-agente,
-LLMs e RAG. Sua função é responder perguntas sobre a trajetória, habilidades e projetos do Bruno
+Você é o agente de portfólio do Bruno Leonel Nunes, um Engenheiro de IA especializado em sistemas multi-agente,
+LLMs e RAG. Sua função é responder perguntas sobre a trajetória, habilidades e projetos do Bruno Leonel
 de forma clara, entusiasmada e profissional.
 
 Responda sempre em português, de forma concisa (máximo 3-4 parágrafos por resposta).
@@ -23,55 +24,73 @@ Se não souber alguma informação específica, diga que o Bruno pode ser contac
 === INFORMAÇÕES SOBRE O BRUNO ===
 
 **Perfil Geral:**
-- Nome: Bruno
-- Cargo: AI Engineer Senior
-- Localização: Brasil
-- Disponível para novas oportunidades: sim
+- Nome: Bruno Leonel Nunes
+- Cargo: AI Engineer
+- Localização: São Paulo, Brasil (remoto)
+- LinkedIn: linkedin.com/in/brunoln
+- GitHub: github.com/Bruno12leonel
+- Email: bruno12leonel@gmail.com
+
+**Resumo profissional:**
+Engenheiro de Computação com mais de 5 anos de experiência em desenvolvimento de software, especializado nos últimos anos em
+Inteligência Artificial Generativa, Machine Learning e NLP. Atua na arquitetura, desenvolvimento e escalabilidade de soluções
+baseadas em LLMs e processamento de grandes volumes de dados.
 
 **Especialidades:**
-- Sistemas Multi-Agente com LangGraph e CrewAI
-- LLMs: GPT-4o, Claude, Llama (fine-tuning com LoRA/QLoRA)
-- RAG (Retrieval-Augmented Generation) com Pinecone e Chroma
-- Prompt Engineering avançado
-- MLOps: MLflow, Weights & Biases, Docker
+- Orquestração de sistemas multiagentes: CrewAI, LangChain, Google ADK
+- RAG (Retrieval-Augmented Generation) e CAG (Cache-Augmented Generation)
+- Prompt Engineering (incluindo few-shot learning)
+- Observabilidade de LLMs com Langfuse
+- NLP, classificação de texto, análise de sentimentos
+- Modelos descritivos para Data Streams (pesquisa acadêmica)
 
 **Habilidades Técnicas:**
-- Linguagens: Python (principal), SQL, JavaScript
-- Frameworks: LangChain, LangGraph, HuggingFace Transformers, PyTorch
-- Cloud: AWS (SageMaker, Lambda, S3), GCP
-- Bancos de dados: PostgreSQL, MongoDB, Redis, Pinecone, Chroma
-- DevOps: Docker, Kubernetes, GitHub Actions
+- IA & LLMs: CrewAI, LangChain, Google ADK, RAG, CAG, GPT, Gemini, Prompt Engineering
+- Linguagens: Python (Django, FastAPI), Golang, TypeScript, JavaScript
+- Cloud: GCP (Cloud Run, BigQuery), AWS (SQS, RDS, S3), Docker, Microserviços
+- Dados & ML: NLP, Unsupervised Learning, clustering escalável para Big Data/Data Streams
+- Outras: Flutter, Firebase, Selenium, Langfuse, Clerk/JWT
 
 **Experiência Profissional:**
-1. AI Engineer Senior @ [Empresa Atual] (Jan 2024 – Presente)
-   - Arquitetou sistemas multi-agente para automação de processos
-   - Reduziu tempo de processamento em 60% com RAG otimizado
-   - Implementou fine-tuning de LLMs para domínios específicos
+1. AI Engineer @ Lopti (Jun 2025 – Presente) — Legal Tech, São Paulo, Remoto
+   - Orquestração de agentes com CrewAI, LangChain e Google ADK
+   - Extração de informações em documentos jurídicos (PDF, Excel, TXT)
+   - Pipelines RAG e CAG com cache semântico para redução de latência e custo
+   - Monitoramento de tokens e performance via Langfuse e GCP
+   - Backend com Django, arquitetura de microserviços, autenticação JWT com Clerk
 
-2. Machine Learning Engineer @ [Empresa Anterior] (Mar 2022 – Dez 2023)
-   - Modelos de NLP para classificação de documentos
-   - Pipelines de MLOps com MLflow e Docker
-   - Infraestrutura de ML escalável na AWS
+2. AI Engineer @ BrandLovers (Jun 2023 – Mai 2025) — São Paulo, Híbrido
+   - Sistema de classificação de criadores de conteúdo com IA (Gemini + GPT)
+   - Infraestrutura híbrida AWS + GCP (Cloud Run) para processamento em larga escala
+   - Análise de sentimentos com OpenAI
+   - Chatbot com RAG usando LangChain
+   - Few-shot learning para refinamento de prompts
+   - Desenvolvimento em Python e Golang
 
-3. Data Scientist @ [Startup] (Jun 2021 – Fev 2022)
-   - Modelos preditivos de churn e segmentação
-   - Primeiros experimentos com LLMs aplicados
+3. Engenheiro de Software @ PGFN — Procuradoria-Geral da Fazenda Nacional (Fev 2021 – Jan 2023) — São Carlos, Híbrido
+   - Estágio (Fev 2021 – Jan 2022) e CLT (Jan 2022 – Jan 2023)
+   - NLP com Python e LLMs para classificação de textos judiciais
+   - Web scraping com Selenium e JavaScript
+   - Automação de processos com macros Google Sheets
 
-**Formação Acadêmica:**
-- Mestrado em Ciência da Computação — área: Inteligência Artificial (2022-2024)
-  Dissertação: Coordenação emergente em redes de LLMs
-- Bacharelado em Engenharia de Computação (2018-2022)
+4. Desenvolvedor Back-End @ Departamento de Computação UFSCar (Jun 2019 – Dez 2021) — Remoto
+   - Projeto de extensão com o Departamento de Medicina da UFSCar
+   - App mobile de apoio psicológico para profissionais de saúde durante a pandemia
+   - Desenvolvimento com Flutter e Firebase
 
-**Projetos Destacados:**
-1. Multi-Agent Research Assistant — sistema com orquestrador + agentes especializados para pesquisa autônoma
-2. Document Intelligence Pipeline — extração e análise de PDFs complexos com RAG
-3. LLM Fine-tuning Toolkit — framework para fine-tuning eficiente com LoRA/QLoRA
-4. AI Monitoring Dashboard — monitoramento de LLMs em produção
+**Formação & Publicações:**
+- Bacharelado em Engenharia de Computação — UFSCar, São Carlos (2016-2021)
+- Certificação em LLMs — Universidade de Stanford
+- Coautor de artigo publicado na Science Direct (Elsevier, 2025) — modelos de ML para Data Streams
+- Coautor de artigo publicado na Springer Nature (2023) — clustering escalável para dados não rotulados
+
+**Projetos:**
+Os projetos no GitHub (github.com/Bruno12leonel) incluem trabalhos em telecom, DevOps, análise de dados com IBM e pesquisa em HPC.
 
 **Contato:**
+- LinkedIn: linkedin.com/in/brunoln
 - GitHub: github.com/Bruno12leonel
-- LinkedIn: linkedin.com/in/seu-usuario
-- Email: seu@email.com
+- Email: bruno12leonel@gmail.com
 
 === FIM DAS INFORMAÇÕES ===
 
@@ -89,8 +108,8 @@ const chatSend     = document.getElementById('chat-send');
 const apiWarning   = document.getElementById('api-warning');
 const suggestions  = document.querySelectorAll('.suggestion-btn');
 
-const hasApiKey = OPENAI_API_KEY && !OPENAI_API_KEY.includes('SUA_CHAVE');
-if (hasApiKey && apiWarning) apiWarning.style.display = 'none';
+const hasApiKey = true;
+if (apiWarning) apiWarning.style.display = 'none';
 
 /* =============================================
    ENVIO DE MENSAGEM
@@ -131,11 +150,10 @@ async function streamFromOpenAI() {
   let fullResponse = '';
 
   try {
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+    const response = await fetch(`${OPENAI_BASE}/chat/completions`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${OPENAI_API_KEY}`,
       },
       body: JSON.stringify({
         model: OPENAI_MODEL,
@@ -192,32 +210,32 @@ async function streamFromOpenAI() {
 function getMockResponse(text) {
   const lower = text.toLowerCase();
   if (lower.includes('skill') || lower.includes('tecnolog') || lower.includes('stack')) {
-    return 'O Bruno domina principalmente Python e o ecossistema de IA: LangChain, LangGraph, HuggingFace e PyTorch. ' +
-      'É especialista em construir sistemas RAG com Pinecone e Chroma, e tem vasta experiência com as APIs da OpenAI e Anthropic. ' +
-      'No lado de infraestrutura, trabalha com AWS, Docker e MLflow para colocar modelos em produção de forma confiável.';
+    return 'O Bruno trabalha principalmente com Python e o ecossistema de IA: CrewAI, LangChain e Google ADK para ' +
+      'orquestração de agentes. Tem forte experiência com RAG, CAG e Prompt Engineering. ' +
+      'No back-end também usa Golang e TypeScript, e na cloud atua com GCP (Cloud Run) e AWS (SQS, S3). ' +
+      'Para observabilidade de LLMs usa Langfuse.';
   }
   if (lower.includes('multi-agent') || lower.includes('agente') || lower.includes('agent')) {
-    return 'Sistemas multi-agente são a principal especialidade do Bruno! ' +
-      'Ele projeta arquiteturas onde um Orchestrator Agent coordena agentes especializados — um para RAG, outro para executar tools, ' +
-      'outro para gerenciar o prompt. Essa abordagem resolve tarefas complexas que um único LLM não conseguiria. ' +
-      'Ele usa principalmente LangGraph para implementar esses fluxos com estado persistente.';
+    return 'Sistemas multiagentes são a principal especialidade do Bruno! ' +
+      'Ele orquestra fluxos com CrewAI, LangChain e Google ADK, onde agentes especializados colaboram para ' +
+      'resolver tarefas complexas — extração de documentos jurídicos, comparação de arquivos, geração de relatórios. ' +
+      'Atualmente usa o Google ADK na Lopti para construir soluções de Legal Tech com integração a APIs externas e ferramentas customizadas.';
   }
-  if (lower.includes('rag') || lower.includes('retriev')) {
-    return 'RAG (Retrieval-Augmented Generation) é uma das áreas mais fortes do Bruno. ' +
-      'Ele constrói pipelines que vão desde o chunking e embedding dos documentos até a recuperação semântica ' +
-      'e injeção de contexto no prompt. Trabalha com Pinecone, Chroma e pgvector, sempre focando em ' +
-      'relevância e redução de alucinações.';
+  if (lower.includes('rag') || lower.includes('cag') || lower.includes('retriev')) {
+    return 'RAG e CAG são áreas de forte atuação do Bruno. ' +
+      'Ele constrói pipelines de Retrieval-Augmented Generation para consulta em bases de documentos (PDF, Excel, TXT) ' +
+      'e aplica CAG (Cache-Augmented Generation) com cache semântico para reduzir latência e custo de tokens. ' +
+      'Na Lopti usa sistemas de busca e indexação do Google; na BrandLovers implementou RAG com LangChain para chatbot.';
   }
-  if (lower.includes('projeto') || lower.includes('project')) {
-    return 'Os projetos mais relevantes do Bruno incluem: um Multi-Agent Research Assistant que pesquisa autonomamente ' +
-      'usando múltiplos agentes; um Document Intelligence Pipeline para análise de contratos com RAG; ' +
-      'um LLM Fine-tuning Toolkit com LoRA/QLoRA; e um AI Monitoring Dashboard para acompanhar LLMs em produção. ' +
-      'Todos disponíveis no GitHub dele!';
+  if (lower.includes('projeto') || lower.includes('project') || lower.includes('github')) {
+    return 'No GitHub (github.com/Bruno12leonel) o Bruno tem projetos em telecom, DevOps (CRUD-DEVOPS para matéria de ' +
+      'DevOps da UFSCar), análise de dados (IBM Data Analyst) e pesquisa em HPC. ' +
+      'Na prática profissional, construiu sistemas de classificação de criadores de conteúdo na BrandLovers, ' +
+      'agentes para documentos jurídicos na Lopti, e app de saúde com Flutter na UFSCar.';
   }
   if (lower.includes('contato') || lower.includes('falar') || lower.includes('contact')) {
-    return 'Você pode entrar em contato com o Bruno pelo LinkedIn (linkedin.com/in/seu-usuario), ' +
-      'pelo GitHub (github.com/Bruno12leonel) ou por e-mail. ' +
-      'Ele costuma responder em menos de 24 horas e está aberto a discutir projetos interessantes de IA!';
+    return 'Você pode entrar em contato com o Bruno Leonel pelo LinkedIn (linkedin.com/in/brunoln) ' +
+      'ou explorar seus projetos no GitHub (github.com/Bruno12leonel).';
   }
   return 'Essa é uma ótima pergunta sobre o Bruno! Posso te contar que ele é um Engenheiro de IA com foco em ' +
     'sistemas multi-agente, LLMs e RAG. Para uma resposta mais detalhada com a API real, configure sua chave ' +
