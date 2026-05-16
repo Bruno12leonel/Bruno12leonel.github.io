@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx skills *)",
+      "Bash(claude plugin *)",
+      "PowerShell(ls \"$env:USERPROFILE\\\\.claude\\\\plugins\" 2>$null; ls \"$env:APPDATA\\\\Claude\\\\plugins\" 2>$null)",
+      "PowerShell(Get-Content \"$env:USERPROFILE\\\\.claude\\\\plugins\\\\installed_plugins.json\")",
+      "Bash(start \"c:\\\\Bruno12leonel.github.io\\\\index.html\")"
+    ]
+  }
+}

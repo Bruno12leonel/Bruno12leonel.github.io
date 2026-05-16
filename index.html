@@ -8,9 +8,13 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
+  <script>
+    const t = localStorage.getItem('theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+  </script>
 </head>
 <body>
 
@@ -25,6 +29,10 @@
       <li><a href="#chat">agente</a></li>
       <li><a href="#contact">contato</a></li>
     </ul>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Alternar tema">
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+    </button>
     <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -32,24 +40,21 @@
 
   <!-- ==================== HERO ==================== -->
   <section id="hero">
-    <canvas id="hero-canvas"></canvas>
-    <div class="hero-content">
-      <h1>Olá, sou <span class="name-highlight">Bruno Leonel Nunes</span></h1>
-      <p class="hero-title">
-        <span id="typed-title">AI Engineer</span>
-        <span class="cursor-blink"></span>
-      </p>
-      <p class="hero-description">
-        Especialista em sistemas multi-agente, LLMs e RAG. Construo soluções de IA que vão além de modelos isolados —
-        arquiteturas inteligentes que raciocinam, recuperam contexto e executam ferramentas de forma autônoma.
-      </p>
-      <div class="hero-actions">
-        <a href="#chat" class="btn btn-primary">
-          &#x25B6; Converse com meu agente
-        </a>
-        <a href="#projects" class="btn btn-secondary">
-          Ver projetos
-        </a>
+    <div class="hero-inner">
+      <div class="hero-eyebrow">
+        <span class="hero-index">01</span>
+        <span class="hero-role">AI Engineer &middot; Brasil</span>
+      </div>
+      <h1 class="hero-name">Bruno Leonel Nunes</h1>
+      <div class="hero-footer">
+        <p class="hero-description">
+          Especialista em sistemas multi-agente, LLMs e RAG. Construo arquiteturas inteligentes que
+          raciocinam, recuperam contexto e executam ferramentas de forma autônoma.
+        </p>
+        <div class="hero-actions">
+          <a href="#chat" class="btn btn-primary">Converse com meu agente</a>
+          <a href="#projects" class="btn btn-secondary">Ver projetos</a>
+        </div>
       </div>
     </div>
   </section>
@@ -58,15 +63,13 @@
   <section id="about">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-tag">// 01 — sobre mim</span>
         <h2>Quem sou <em>eu</em></h2>
       </div>
       <div class="about-grid">
         <div class="about-avatar reveal">
           <div class="avatar-frame">
-            <!-- Substitua por uma tag <img> quando tiver sua foto:
-                 <img src="assets/foto.jpg" alt="Bruno"> -->
-            <span class="avatar-placeholder">🧑‍💻</span>
+            <!-- <img src="assets/foto.jpg" alt="Bruno Leonel"> -->
+            <span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted);letter-spacing:0.05em;">foto</span>
             <div class="avatar-corner tl"></div>
             <div class="avatar-corner tr"></div>
             <div class="avatar-corner bl"></div>
@@ -105,100 +108,51 @@
   <section id="skills">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-tag">// 02 — habilidades</span>
         <h2>Stack <em>técnico</em></h2>
       </div>
       <div class="skills-grid">
 
         <div class="skill-category reveal">
-          <div class="skill-category-icon">🤖</div>
           <h3>AI & Agentes</h3>
           <ul class="skill-list">
-            <li class="skill-item">
-              <span>CrewAI / LangChain</span>
-              <div class="skill-bar"><div class="skill-bar-fill" data-width="95"></div></div>
-            </li>
-            <li class="skill-item">
-              <span>Google ADK</span>
-              <div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div>
-            </li>
-            <li class="skill-item">
-              <span>RAG & CAG</span>
-              <div class="skill-bar"><div class="skill-bar-fill" data-width="92"></div></div>
-            </li>
-            <li class="skill-item">
-              <span>Prompt Engineering</span>
-              <div class="skill-bar"><div class="skill-bar-fill" data-width="97"></div></div>
-            </li>
+            <li class="skill-item">CrewAI / LangChain</li>
+            <li class="skill-item">Google ADK</li>
+            <li class="skill-item">RAG & CAG</li>
+            <li class="skill-item">Prompt Engineering</li>
+            <li class="skill-item">LangGraph</li>
           </ul>
         </div>
 
         <div class="skill-category reveal">
-          <div class="skill-category-icon">🧠</div>
           <h3>ML & NLP</h3>
           <ul class="skill-list">
-            <li class="skill-item">
-              <span>NLP & Classificação de Texto</span>
-              <div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div>
-            </li>
-            <li class="skill-item">
-              <span>Unsupervised Learning</span>
-              <div class="skill-bar"><div class="skill-bar-fill" data-width="88"></div></div>
-            </li>
-            <li class="skill-item">
-              <span>Clustering (Big Data / Streams)</span>
-              <div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div>
-            </li>
-            <li class="skill-item">
-              <span>GPT / Gemini APIs</span>
-              <div class="skill-bar"><div class="skill-bar-fill" data-width="95"></div></div>
-            </li>
+            <li class="skill-item">NLP & Classificação de Texto</li>
+            <li class="skill-item">Unsupervised Learning</li>
+            <li class="skill-item">Clustering (Data Streams)</li>
+            <li class="skill-item">GPT / Gemini APIs</li>
+            <li class="skill-item">Fine-tuning (LoRA / QLoRA)</li>
           </ul>
         </div>
 
         <div class="skill-category reveal">
-          <div class="skill-category-icon">💻</div>
           <h3>Linguagens & Backend</h3>
           <ul class="skill-list">
-            <li class="skill-item">
-              <span>Python (Django / FastAPI)</span>
-              <div class="skill-bar"><div class="skill-bar-fill" data-width="95"></div></div>
-            </li>
-            <li class="skill-item">
-              <span>Golang</span>
-              <div class="skill-bar"><div class="skill-bar-fill" data-width="78"></div></div>
-            </li>
-            <li class="skill-item">
-              <span>TypeScript / JavaScript</span>
-              <div class="skill-bar"><div class="skill-bar-fill" data-width="82"></div></div>
-            </li>
-            <li class="skill-item">
-              <span>Flutter / Firebase</span>
-              <div class="skill-bar"><div class="skill-bar-fill" data-width="72"></div></div>
-            </li>
+            <li class="skill-item">Python (Django / FastAPI)</li>
+            <li class="skill-item">Golang</li>
+            <li class="skill-item">TypeScript / JavaScript</li>
+            <li class="skill-item">Flutter / Firebase</li>
+            <li class="skill-item">REST & GraphQL APIs</li>
           </ul>
         </div>
 
         <div class="skill-category reveal">
-          <div class="skill-category-icon">☁️</div>
           <h3>Cloud & Infra</h3>
           <ul class="skill-list">
-            <li class="skill-item">
-              <span>GCP (Cloud Run, BigQuery)</span>
-              <div class="skill-bar"><div class="skill-bar-fill" data-width="88"></div></div>
-            </li>
-            <li class="skill-item">
-              <span>AWS (SQS, RDS, S3)</span>
-              <div class="skill-bar"><div class="skill-bar-fill" data-width="82"></div></div>
-            </li>
-            <li class="skill-item">
-              <span>Docker / Microserviços</span>
-              <div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div>
-            </li>
-            <li class="skill-item">
-              <span>Langfuse / Observabilidade</span>
-              <div class="skill-bar"><div class="skill-bar-fill" data-width="80"></div></div>
-            </li>
+            <li class="skill-item">GCP (Cloud Run, BigQuery)</li>
+            <li class="skill-item">AWS (SQS, RDS, S3)</li>
+            <li class="skill-item">Docker / Microserviços</li>
+            <li class="skill-item">Langfuse / Observabilidade</li>
+            <li class="skill-item">Pinecone / ChromaDB</li>
           </ul>
         </div>
 
@@ -210,7 +164,6 @@
   <section id="experience">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-tag">// 03 — experiência</span>
         <h2>Trajetória <em>profissional</em></h2>
       </div>
       <div class="timeline">
@@ -306,7 +259,6 @@
   <section id="education">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-tag">// 04 — formação</span>
         <h2>Base <em>acadêmica</em></h2>
       </div>
       <div class="timeline">
@@ -384,7 +336,6 @@
   <section id="projects">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-tag">// 05 — projetos</span>
         <h2>O que <em>construí</em></h2>
       </div>
       <div class="projects-grid">
@@ -392,7 +343,7 @@
         <!-- ✏️ EDITE: substitua com seus projetos reais -->
         <div class="project-card reveal">
           <div class="project-header">
-            <div class="project-icon">🕸️</div>
+            <span class="project-num">P — 01</span>
             <div class="project-links">
               <a href="#" class="project-link" title="GitHub">⌥</a>
               <a href="#" class="project-link" title="Demo">↗</a>
@@ -413,7 +364,7 @@
 
         <div class="project-card reveal">
           <div class="project-header">
-            <div class="project-icon">📄</div>
+            <span class="project-num">P — 02</span>
             <div class="project-links">
               <a href="#" class="project-link" title="GitHub">⌥</a>
               <a href="#" class="project-link" title="Demo">↗</a>
@@ -434,7 +385,7 @@
 
         <div class="project-card reveal">
           <div class="project-header">
-            <div class="project-icon">🔬</div>
+            <span class="project-num">P — 03</span>
             <div class="project-links">
               <a href="#" class="project-link" title="GitHub">⌥</a>
               <a href="#" class="project-link" title="Demo">↗</a>
@@ -455,7 +406,7 @@
 
         <div class="project-card reveal">
           <div class="project-header">
-            <div class="project-icon">⚙️</div>
+            <span class="project-num">P — 04</span>
             <div class="project-links">
               <a href="#" class="project-link" title="GitHub">⌥</a>
               <a href="#" class="project-link" title="Demo">↗</a>
@@ -482,7 +433,6 @@
   <section id="chat">
     <div class="container">
       <div class="section-header reveal" style="text-align:center;">
-        <span class="section-tag" style="display:block; text-align:center;">// 06 — agente de portfólio</span>
         <h2>Pergunte ao meu <em>agente</em></h2>
       </div>
       <div class="chat-wrapper reveal">
@@ -536,7 +486,6 @@
   <section id="contact">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-tag">// 07 — contato</span>
         <h2>Vamos <em>conversar</em></h2>
       </div>
       <div class="contact-grid">
